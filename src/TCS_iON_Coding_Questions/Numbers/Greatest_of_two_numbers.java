@@ -1,0 +1,13 @@
+package TCS_iON_Coding_Questions.Numbers;
+
+public class Greatest_of_two_numbers {
+    public static void main(String[] args) {
+        double num1 = 1.123;
+        double num2 = 1.124;
+        if (num1 < num2) {
+            System.out.println("The greatest of two numbers is "+num2);
+        } else {
+            System.out.println("The greatest of two numbers is "+num1);
+        }
+    }
+}
