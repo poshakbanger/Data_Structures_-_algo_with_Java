@@ -56,10 +56,35 @@ public class Check_If_Array_Pair_Sums_Divisible_by_k {
         return true;
     }
 
+    public static boolean checkCanPairs(int[] arr, int k){
+        if (arr.length % 2 != 0)
+            return false;
+
+        // Create a frequency array of size k
+        int[] freq = new int[k];
+
+        for (int x : arr) {
+            int rem = x % k;
+
+            // If the complement of the current remainder exists in freq, decrement its count
+            if (freq[(k - rem) % k] != 0)
+                freq[(k - rem) % k]--;
+            // Otherwise, increment the count of the current remainder
+            else freq[rem]++;
+        }
+
+        for (int count : freq){
+            if (count != 0)
+                return false;
+        }
+        return true;
+    }
+
     static void main() {
         int[] arr = {92, 75, 65, 48, 45, 35};
         int k = 10;
         System.out.println(canPairs(arr, k) ? "True" : "False");
         System.out.println(can_Pairs(arr, k) ? "True" : "False");
+        System.out.println(checkCanPairs(arr, k) ? "True": "False");
     }
 }
